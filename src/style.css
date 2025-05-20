@@ -1,0 +1,137 @@
+body,
+html {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  color: #7c7c7c;
+
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  flex-direction: row;
+}
+
+.sideBar {
+  min-width: 300px;
+  width: 440px;
+  min-height: 100vh;
+
+  box-sizing: border-box;
+  padding: 60px;
+
+  background-color: #f9f6f7;
+}
+
+.sbTitle {
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.actionList {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+.addTask {
+  color: #f2551f;
+}
+
+.plus-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #f44336; 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bar {
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.horizontal {
+  width: 60%;
+  height: 2px;
+}
+
+.vertical {
+  width: 2px;
+  height: 60%;
+}
+
+.inboxSection, .addTask, .finishedSection, .mpTitle, .addProject{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.inboxIcon, .finishedIcon, .listIcon{
+  width: 26px;
+  height: 26px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.inboxIcon {
+    background-image: url('./assets/inboxGray.png');
+}
+
+.finishedIcon {
+    background-image: url('./assets/tasksGray.png');
+}
+
+
+.myProjects {
+    margin-top: 40px;
+}
+
+.mpTitle {
+    font-size: 28px;
+}
+
+.listIcon {
+    background-image: url("./assets/caret-down.png");
+}
+
+.addProject {
+    margin-left: 30px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.plus {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+}
+
+.pBar {
+  background-color: #7C7C7C;
+  border-radius: 2px;
+  grid-column: 1;
+  grid-row: 1;
+}
+
+
+.pHorizontal {
+  width: 16px;
+  height: 3px;
+}
+
+
+.pVertical {
+  width: 3px;
+  height: 16px;
+}
