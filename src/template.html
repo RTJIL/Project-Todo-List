@@ -17,30 +17,30 @@
       <div class="sideBar">
         <div class="sbTitle">Todolist</div>
         <div class="actionList">
-          <div class="addTask">
+          <div class="button addTask">
             <div class="plus-circle">
               <div class="bar horizontal"></div>
               <div class="bar vertical"></div>
             </div>
             Add task
           </div>
-          <div class="inboxSection">
+          <div class="button inboxSection">
             <div class="inboxIcon"></div>
             Inbox
           </div>
-          <div class="finishedSection">
+          <div class="button finishedSection">
             <div class="finishedIcon"></div>
             Finished
           </div>
         </div>
 
         <div class="myProjects">
-          <div class="mpTitle">
+          <div class="button mpTitle">
             My Projects
             <div class="listIcon"></div>
           </div>
           <div class="projects">
-            <div class="addProject">
+            <div class="button addProject">
               Add new
               <div class="plus">
                 <div class="pBar pHorizontal"></div>
@@ -51,7 +51,52 @@
         </div>
       </div>
 
-      <div class="taskContent"></div>
+      <div class="taskContent">
+        <div class="task-form">
+          <h2>Add New Task</h2>
+          <form>
+            <div class="form-row">
+              <label for="description">Description</label>
+              <textarea
+                id="description"
+                name="description"
+                placeholder="Add task description..."
+              ></textarea>
+            </div>
+
+            <div class="form-field">
+              <label for="dueDate">Due Date</label>
+              <input type="date" id="dueDate" name="dueDate" />
+            </div>
+
+            <div class="form-row">
+              <label>Priority</label>
+              <select>
+                <option value="" disabled selected>Select priority</option>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label>Project</label>
+              <select class="selectProject">
+                <option value="" disabled selected>Select project</option>
+                <option value="school">School</option>
+                <option value="work">Work</option>
+                <option value="personal">Personal</option>
+              </select>
+            </div>
+
+            <div class="form-buttons">
+              <button type="reset">Reset</button>
+              <button type="submit">Add</button>
+              <button type="button">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   </body>
 </html>
