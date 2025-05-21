@@ -19,6 +19,7 @@ html {
   width: 440px;
   min-height: 100vh;
 
+  /*padding no included*/
   box-sizing: border-box;
   padding: 60px;
 
@@ -238,12 +239,101 @@ button:hover {
   background-color: rgba(0, 0, 0, 0.05)
 }
 
-/* taskContent Form pop up */
 
-.form {
-  position: fixed;
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1000;
+/*Footer*/
+
+.taskContent {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  flex: 1;
+}
+
+.footer {
+  width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  padding: 1rem;
+  background-color: #f9f6f7;
+  color: #7c7c7c;
+
+  margin-top: auto; /* This pushes it to the bottom */
+}
+
+/* Inbox style */
+
+.inboxContainer {
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  user-select: none;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+
+  gap: 10px;
+}
+
+/*Tasks Area*/
+
+.checkCircle, .rewriteIcon, .deleteIcon, .plus {
+  cursor: pointer;
+}
+
+.checkCircle {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #f2551f;
+  border-radius: 50%;
+
+  flex-shrink: 0;
+}
+
+.taskTxt {
+  font-size: 20px;
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.due {
+  font-size: 12px;
+}
+
+.rewriteIcon {
+  background-image: url('./assets/edit.png');
+}
+
+
+.deleteIcon {
+  background-image: url('./assets/trash.png');
+}
+
+/**/
+
+.task {
+  display: flex;
+  gap: 16px;
+  padding: 10px;
+}
+
+.due {
+  font-size: 14px;
+  color: #aaa;
+  white-space: nowrap; /* prevent wrapping */
+}
+  
+.rewriteIcon,
+.deleteIcon {
+  flex-shrink: 0; /* So they don't get squished */
+  width: 24px;
+  height: 24px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
