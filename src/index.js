@@ -1,10 +1,16 @@
 import "./style.css"
+import { addTask } from "./addTask"
+
+const taskContent = document.querySelector('.taskContent')
+const closeButton = document.querySelector('#cancel')
 
 const buttons = document.querySelectorAll(".button")
+
 buttons.forEach(function (btn) {
   btn.addEventListener("click", function () {
     if (btn.classList.contains('addTask')) {
-        console.log("task added")
+        addTask();
+        taskContent.classList.remove('hidden')
     } else if (btn.classList.contains('inboxSection')) {
         console.log("inbox")
     } else if (btn.classList.contains('finishedSection')) {
