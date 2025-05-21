@@ -1,5 +1,7 @@
+import { cancelAddTask } from "./cancelButton"
+
 function addTask() {
-  const container = document.querySelector(".taskContent")
+  const container = document.querySelector(".popup")
 
   const addForm = document.createElement("form")
   addForm.setAttribute("action", "#")
@@ -43,22 +45,26 @@ function addTask() {
   // Remember to use objects when creating selects
   const priorityOptions = [
     {
-      value: "low",
-      text: "Low",
+      value: "",
+      text: "-- Select Priority --",
       disabled: true,
       selected: true,
+      hidden: true, // 🧼 hides it from dropdown after selection
     },
+    { value: "low", text: "Low" },
     { value: "medium", text: "Medium" },
     { value: "high", text: "High" },
   ]
 
-  priorityOptions.forEach(function (optData) {
+  priorityOptions.forEach((optData) => {
     const option = document.createElement("option")
     option.value = optData.value
     option.textContent = optData.text
-    option.disabled = optData.disabled
+
     if (optData.disabled) option.disabled = true
     if (optData.selected) option.selected = true
+    if (optData.hidden) option.hidden = true
+
     prioritySelect.appendChild(option)
   })
 
@@ -70,7 +76,8 @@ function addTask() {
   projectSelect.classList.add("data", "project")
 
   const projectOptions = [
-    { value: "inbox", text: "Inbox", disabled: true, selected: true },
+    { value: "inbox", text: "-- Select Project --", disabled: true, selected: true },
+    { value: "inbox", text: "Inbox" },
   ]
 
   projectOptions.forEach((optData) => {
@@ -114,6 +121,8 @@ function addTask() {
   addForm.appendChild(buttonDiv)
 
   container.appendChild(addForm)
+
+  cancelAddTask()
 }
 
 // export to index.js
