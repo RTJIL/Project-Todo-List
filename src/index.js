@@ -1,8 +1,10 @@
 import "./style.css"
 import { addTask } from "./addTask"
+import { addInboxContent } from "./addInboxContent"
 
 const popUp = document.querySelector('.popup')
 const buttons = document.querySelectorAll(".button")
+const taskContent = document.querySelector(".taskContent")
 
 buttons.forEach(function (btn) {
   btn.addEventListener("click", function () {
@@ -10,7 +12,8 @@ buttons.forEach(function (btn) {
         addTask();
         popUp.classList.add('hidden')
     } else if (btn.classList.contains('inboxSection')) {
-        console.log("inbox")
+        taskContent.innerHTML = ""
+        addInboxContent()
     } else if (btn.classList.contains('finishedSection')) {
         console.log("finished")
     } else if (btn.classList.contains('mpTitle')) {
