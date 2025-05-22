@@ -1,11 +1,13 @@
 import "./style.css"
-import { addTask } from "./addTask"
+import { addTaskForm } from "./addTaskForm"
 import { addInboxContent } from "./addInboxContent"
 import { mpTitleAnimationGrow, mpTitleAnimationShrink } from "./mpTitleAnimation"
 
+addInboxContent();
+
 const popUp = document.querySelector(".popup")
 const buttons = document.querySelectorAll(".button")
-const taskContent = document.querySelector(".taskContent")
+const inboxContainer = document.querySelector(".inboxContainer")
 
 document.querySelector(".mpTitle").addEventListener("click", () => {
   const projectsSection = document.querySelector(".projects"); 
@@ -23,10 +25,10 @@ document.querySelector(".mpTitle").addEventListener("click", () => {
 buttons.forEach(function (btn) {
   btn.addEventListener("click", function () {
     if (btn.classList.contains("addTask")) {
-      addTask()
+      addTaskForm()
       popUp.classList.add("hidden")
     } else if (btn.classList.contains("inboxSection")) {
-      taskContent.innerHTML = ""
+      inboxContainer.innerHTML = ""
       addInboxContent()
     } else if (btn.classList.contains("finishedSection")) {
       console.log("finished")
@@ -34,9 +36,6 @@ buttons.forEach(function (btn) {
       console.log("animation")
     } else if (btn.classList.contains("addProject")) {
       console.log("Project added successfuly")
-    } else if (btn.classList.contains("plus button")) {
-      addTask()
-      popUp.classList.add("hidden")
     }
   })
 })

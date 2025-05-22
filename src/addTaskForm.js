@@ -1,6 +1,7 @@
-import { cancelAddTask } from "./cancelButton"
+import { cancelAddTask } from "./cancelAddTask"
+import { saveTaskTo } from "./saveTaskTo"
 
-function addTask() {
+function addTaskForm() {
   const container = document.querySelector(".popup")
 
   const addForm = document.createElement("form")
@@ -26,6 +27,7 @@ function addTask() {
   descriptionInput.id = "description"
   descriptionInput.required = true
   descriptionInput.classList.add("data", "description")
+  descriptionInput.setAttribute("autocomplete", "off")
 
   const descriptionRow = createFormRow("Description", descriptionInput)
 
@@ -123,7 +125,25 @@ function addTask() {
   container.appendChild(addForm)
 
   cancelAddTask()
+
+  
+addForm.addEventListener("submit", (e) => {
+  e.preventDefault()
+
+  const taskData = {
+    description: descriptionInput.value,
+    date: dueDateInput.value,
+    priority: prioritySelect.value ? prioritySelect.value : "low",
+    project: projectSelect.value ? descriptionInput.value : "Inbox",
+  }
+
+  saveTaskTo(taskData)
+
+  addForm.reset()
+  container.innerHTML = ''
+  container.classList.remove("hidden")
+})
 }
 
 // export to index.js
-export { addTask }
+export { addTaskForm }

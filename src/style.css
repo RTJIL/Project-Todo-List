@@ -195,10 +195,13 @@ form {
   padding: 20px;
   gap: 20px;
   border: 2px solid #f2551f;
+  background-color: #f1f1f1;
   border-radius: 20px;
   font-family: "Roboto", sans-serif;
   max-width: 400px;
   max-height: fit-content;
+
+  user-select: none;
 }
 
 .formRow {
@@ -215,7 +218,8 @@ label {
   color: #7c7c7c;
 }
 
-.data, button {
+.data,
+button {
   flex: 2;
   padding: 8px 10px;
   background-color: #d9d9d9;
@@ -226,6 +230,8 @@ label {
   transition: border-color 0.3s ease;
   width: 100%;
   box-sizing: border-box;
+
+  user-select: none;
 }
 
 .data:focus {
@@ -240,7 +246,10 @@ label {
   width: 100%;
 }
 
-button, .data.date, .data.priority, .data.project {
+button,
+.data.date,
+.data.priority,
+.data.project {
   cursor: pointer;
 }
 
@@ -253,9 +262,8 @@ button:hover {
   height: 100vh;
   position: absolute;
 
-  background-color: rgba(0, 0, 0, 0.05)
+  background-color: rgba(0, 0, 0, 0.05);
 }
-
 
 /*Footer*/
 
@@ -274,7 +282,7 @@ button:hover {
   background-color: #f9f6f7;
   color: #7c7c7c;
 
-  margin-top: auto; /* This pushes it to the bottom */
+  margin-top: auto;
 }
 
 /* Inbox style */
@@ -297,17 +305,31 @@ button:hover {
 
 /*Tasks Area*/
 
-.checkCircle, .rewriteIcon, .deleteIcon, .plus {
+.checkCircle,
+.rewriteIcon,
+.deleteIcon,
+.plus {
   cursor: pointer;
 }
 
 .checkCircle {
   width: 22px;
   height: 22px;
-  border: 1px solid #f2551f;
   border-radius: 50%;
 
   flex-shrink: 0;
+}
+
+.greenPriority {
+  border: 1px solid #a1f21f;
+}
+
+.yellowPriority {
+  border: 1px solid #ffd900;
+}
+
+.redPriority {
+  border: 1px solid #f2551f;
 }
 
 .taskTxt {
@@ -323,12 +345,11 @@ button:hover {
 }
 
 .rewriteIcon {
-  background-image: url('./assets/edit.png');
+  background-image: url("./assets/edit.png");
 }
 
-
 .deleteIcon {
-  background-image: url('./assets/trash.png');
+  background-image: url("./assets/trash.png");
 }
 
 /**/
@@ -344,7 +365,7 @@ button:hover {
   color: #aaa;
   white-space: nowrap; /* prevent wrapping */
 }
-  
+
 .rewriteIcon,
 .deleteIcon {
   flex-shrink: 0; /* So they don't get squished */
