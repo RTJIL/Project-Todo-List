@@ -131,6 +131,7 @@ addForm.addEventListener("submit", (e) => {
   e.preventDefault()
 
   const taskData = {
+    id: Date.now(),
     description: descriptionInput.value,
     date: dueDateInput.value,
     priority: prioritySelect.value ? prioritySelect.value : "low",

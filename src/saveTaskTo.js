@@ -1,7 +1,11 @@
-const inboxTasks = []
+// saveTskTo.js
+import { editTaskForm } from "./editTask"
+let inboxTasks = []
 
 function saveTaskTo(taskData) {
   inboxTasks.push(taskData)
+  localStorage.setItem("inboxTasks", JSON.stringify(inboxTasks))
+
   const inboxContainer = document.querySelector(".inboxContainer")
 
   // Create task div
@@ -22,6 +26,10 @@ function saveTaskTo(taskData) {
 
   checkCircle.addEventListener("click", function () {
     taskDiv.remove()
+
+    inboxTasks = inboxTasks.filter((task) => task.id !== taskData.id) // remove from array
+
+    localStorage.setItem("inboxTasks", JSON.stringify(inboxTasks))
   })
 
   // Create task description field with Due Date
@@ -43,9 +51,21 @@ function saveTaskTo(taskData) {
   rewriteIcon.classList.add("rewriteIcon")
   rewriteIcon.id = "button"
 
+  rewriteIcon.addEventListener("click", () => {
+  editTaskForm(taskData, taskData.id)
+})
+
   const deleteIcon = document.createElement("div")
   deleteIcon.classList.add("deleteIcon")
   deleteIcon.id = "button"
+
+  deleteIcon.addEventListener("click", function () {
+    taskDiv.remove()
+
+    inboxTasks = inboxTasks.filter((task) => task.id !== taskData.id) // remove from array
+
+    localStorage.setItem("inboxTasks", JSON.stringify(inboxTasks))
+  })
 
   // Appending all that stuff step by step
 
@@ -64,12 +84,3 @@ function saveTaskTo(taskData) {
 }
 
 export { saveTaskTo, inboxTasks }
-
-/* const taskInfo = [
-    {
-        description: "Tsk1",
-        dueDate: "10/10/2020",
-        priority: "Low",
-        project: "Inbox"
-    }
-  ] */
